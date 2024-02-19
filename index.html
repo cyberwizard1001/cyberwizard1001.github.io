@@ -83,7 +83,7 @@
             'DOLO 650'
         ];
         const MODEL_FOLDER = 'https://github.com/cyberwizard1001/cyberwizard1001.github.io/blob/main/model/model.json';
-        const mode = 'environment' // back camera
+        const camera_mode = 'environment' // back camera
         //const camera_mode = 'user'; // front camera
 
         let currentStream;
@@ -101,7 +101,7 @@
         ////////////////////////////////
         ////////    VIDEO CAPTURE AND PREDICTION LOGIC
         ////////////////////////////////
-        async function startVideo(facingMode = 'environment') {
+        async function startVideo(facingMode = camera_mode) {
             // Stop any existing video tracks to free up the camera
             if (currentStream) {
                 currentStream.getTracks().forEach(track => {

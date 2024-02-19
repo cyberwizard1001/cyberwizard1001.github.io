@@ -24,14 +24,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        #captured-image {
-            max-width: 90%;
-            border-radius: 15px;
-            /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: none; /* Hide the captured image initially */
-        }
-
         button {
             margin: 20px 0;
             padding: 10px 20px;
@@ -47,10 +39,6 @@
             font-size: 18px;
             color: #333;
         }
-
-        #predict-again-button {
-            display: none; /* Hide the predict again button initially */
-        }
     </style>
 </head>
 
@@ -59,10 +47,8 @@
     <h2>WHAT AM I HOLDING?</h2>
 
     <video id="video" autoplay playsinline></video>
-    <img id="captured-image" alt="Captured Image">
-    <button id="capture-button" onclick="captureImage()">Capture Image</button>
+    <!--<button onclick="switchCamera()">Switch Camera</button>-->
     <p id="result"></p>
-    <button id="predict-again-button" onclick="predictAgain()">Predict Again</button>
 
     <script>
         ////////////////////////////////
@@ -83,8 +69,8 @@
             'DOLO 650'
         ];
         const MODEL_FOLDER = 'https://github.com/cyberwizard1001/cyberwizard1001.github.io/blob/main/model/model.json';
-        const camera_mode = 'environment' // back camera
-        //const camera_mode = 'user'; // front camera
+        // const mode = 'environment' // back camera
+        const camera_mode = 'user' // front camera
 
         let currentStream;
 
@@ -95,13 +81,12 @@
             console.log(classScores);
             document.getElementById("result").innerHTML = `Prediction: ${predictedClass}, Confidence: ${classScores[0]}`;
             document.body.style.backgroundColor = predictedClass === "Allegra" ? "red" : "white";
-            document.getElementById("predict-again-button").style.display = 'block';
         }
 
         ////////////////////////////////
         ////////    VIDEO CAPTURE AND PREDICTION LOGIC
         ////////////////////////////////
-        async function startVideo(facingMode = camera_mode) {
+        async function startVideo(facingMode = 'user') {
             // Stop any existing video tracks to free up the camera
             if (currentStream) {
                 currentStream.getTracks().forEach(track => {
@@ -112,9 +97,7 @@
             try {
                 // Request access to the camera with the specified facing mode
                 const stream = await navigator.mediaDevices.getUserMedia({
-                    video: {
-                        facingMode
-                    }
+                    video: { facingMode }
                 });
 
                 const videoElement = document.getElementById('video');
@@ -132,6 +115,7 @@
             }
         }
 
+
         async function startPredicting() {
             const model = await tf.loadGraphModel(MODEL_FOLDER);
             setInterval(async () => {
@@ -145,29 +129,14 @@
             }, PROCESSING_SPEED);
         }
 
-        async function captureImage() {
-            const videoElement = document.getElementById('video');
-            const capturedImage = document.getElementById('captured-image');
+        // function switchCamera() {
+        //     if (currentStream) {
+        //         currentStream.getTracks().forEach(track => track.stop());
+        //     }
+        //     startVideo('user');
+        // }
 
-            // Hide video and show captured image
-            videoElement.style.display = 'none';
-            capturedImage.style.display = 'block';
-
-            const canvas = document.createElement('canvas');
-            canvas.width = videoElement.videoWidth;
-            canvas.height = videoElement.videoHeight;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-
-            capturedImage.src = canvas.toDataURL();
-        }
-
-        function predictAgain() {
-            // Refresh the page to allow capturing a new image
-            location.reload();
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             startVideo(camera_mode);
             startPredicting();
         });

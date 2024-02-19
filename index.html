@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Model Prediction</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <link rel="stylesheet" href="https://ui5.sap.com/sdk/resources/sap-ui-core.js">
+    <script id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/sdk/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true">
+    </script>
     <style>
         body {
             display: flex;
@@ -15,6 +23,7 @@
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
 
         video {
@@ -24,31 +33,49 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        button {
+        .button {
             margin: 20px 0;
-            padding: 10px 20px;
             font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
         }
 
         p {
             font-size: 18px;
             color: #333;
         }
+
+        .list {
+            text-align: left;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
 <body>
-
     <h2>WHAT AM I HOLDING?</h2>
 
     <video id="video" autoplay playsinline></video>
-    <!--<button onclick="switchCamera()">Switch Camera</button>-->
     <p id="result"></p>
+
+    <div class="list">
+        <h3>Accepted Classes:</h3>
+        <ul>
+            <li>RANTAC 300</li>
+            <li>Livogen -Z</li>
+            <li>BECADEXAMIN - MULTIVITAMIN</li>
+            <li>MEFTAL SPAS</li>
+            <li>PAN D</li>
+            <li>D-RISE 60K</li>
+            <li>Allegra</li>
+            <li>AUGMENTIN 625 DUO</li>
+            <li>PANTOCID DSR</li>
+            <li>ZERODOL P</li>
+            <li>DOLO 650</li>
+        </ul>
+    </div>
 
     <script>
         ////////////////////////////////
@@ -69,10 +96,7 @@
             'DOLO 650'
         ];
         const MODEL_FOLDER = 'https://cyberwizard1001.github.io/model/model.json';
-        //const MODEL_FOLDER = '/model/model.json';
-
-        const camera_mode = 'environment' // back camera
-        //const camera_mode = 'user' // front camera
+        const camera_mode = 'environment'; // back camera
 
         let currentStream;
 
@@ -99,7 +123,9 @@
             try {
                 // Request access to the camera with the specified facing mode
                 const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode }
+                    video: {
+                        facingMode
+                    }
                 });
 
                 const videoElement = document.getElementById('video');
@@ -117,7 +143,6 @@
             }
         }
 
-
         async function startPredicting() {
             const model = await tf.loadGraphModel(MODEL_FOLDER);
             setInterval(async () => {
@@ -130,13 +155,6 @@
                 interaction(predictedClass, classScores);
             }, PROCESSING_SPEED);
         }
-
-        // function switchCamera() {
-        //     if (currentStream) {
-        //         currentStream.getTracks().forEach(track => track.stop());
-        //     }
-        //     startVideo('user');
-        // }
 
         document.addEventListener("DOMContentLoaded", function () {
             startVideo(camera_mode);

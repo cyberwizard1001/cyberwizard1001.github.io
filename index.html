@@ -47,6 +47,10 @@
             font-size: 18px;
             color: #333;
         }
+
+        #predict-again-button {
+            display: none; /* Hide the predict again button initially */
+        }
     </style>
 </head>
 
@@ -56,14 +60,15 @@
 
     <video id="video" autoplay playsinline></video>
     <img id="captured-image" alt="Captured Image">
-    <button onclick="captureImage()">Capture Image</button>
+    <button id="capture-button" onclick="captureImage()">Capture Image</button>
     <p id="result"></p>
+    <button id="predict-again-button" onclick="predictAgain()">Predict Again</button>
 
     <script>
         ////////////////////////////////
         ////////    SPECIFY PARAMETERS
         ////////////////////////////////
-        const PROCESSING_SPEED = 2000;
+        const PROCESSING_SPEED = 100;
         const CLASSES = [
             'RANTAC 300',
             'Livogen -Z',
@@ -78,8 +83,8 @@
             'DOLO 650'
         ];
         const MODEL_FOLDER = 'https://github.com/cyberwizard1001/cyberwizard1001.github.io/blob/main/model/model.json';
-        // const mode = 'environment' // back camera
-        const camera_mode = 'user'; // front camera
+        const mode = 'environment' // back camera
+        //const camera_mode = 'user'; // front camera
 
         let currentStream;
 
@@ -90,12 +95,13 @@
             console.log(classScores);
             document.getElementById("result").innerHTML = `Prediction: ${predictedClass}, Confidence: ${classScores[0]}`;
             document.body.style.backgroundColor = predictedClass === "Allegra" ? "red" : "white";
+            document.getElementById("predict-again-button").style.display = 'block';
         }
 
         ////////////////////////////////
         ////////    VIDEO CAPTURE AND PREDICTION LOGIC
         ////////////////////////////////
-        async function startVideo(facingMode = 'user') {
+        async function startVideo(facingMode = 'environment') {
             // Stop any existing video tracks to free up the camera
             if (currentStream) {
                 currentStream.getTracks().forEach(track => {
@@ -156,12 +162,10 @@
             capturedImage.src = canvas.toDataURL();
         }
 
-        // function switchCamera() {
-        //     if (currentStream) {
-        //         currentStream.getTracks().forEach(track => track.stop());
-        //     }
-        //     startVideo('user');
-        // }
+        function predictAgain() {
+            // Refresh the page to allow capturing a new image
+            location.reload();
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
             startVideo(camera_mode);

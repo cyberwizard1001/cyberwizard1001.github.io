@@ -333,6 +333,9 @@
                     <div>Send<br>report</div>
                 </button>
             </div>
+            <div id="medicine-label">
+                Medicine Label
+            </div>
         </div>
 
         <div class="container" id="medicine-lists">
@@ -461,10 +464,10 @@
         }
 
         function updateMedicineList(predictedClass) {
-            if (predictedClass === undefined || predictedClass === 'human') {
-                // Skip adding undefined or human classes to the list
-                return;
-            }
+            // if (predictedClass === undefined || predictedClass === 'human') {
+            //     // Skip adding undefined or human classes to the list
+            //     return;
+            // }
 
             const medicineList = document.getElementById("approved-list");
             const illegalList = document.getElementById("illegal-list");

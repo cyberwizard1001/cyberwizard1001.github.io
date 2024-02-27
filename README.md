@@ -13,10 +13,11 @@ Clone the repository. Additionally, modify the model path to use the local model
 
 ### Contributors
 
-Nirmal Karthikeyan
-Tejus R Meda
-Eshaan Abhyankar 
-Swati Nair
+- Nirmal Karthikeyan
+- Tejus R Meda
+- Eshaan Abhyankar 
+- Swati Nair
+- Toolika Payak
 
-
+<br> <br>
 Designed and developed as part of coursework for the CSC8611 module.

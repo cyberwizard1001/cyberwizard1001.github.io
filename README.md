@@ -1,18 +1,22 @@
-## Practical Hands-on HAI Applications - Human-Artificial Intelligence (AI) Interaction & Futures - CSC8611
+## Advancing Airport Safety Through AI-Powered Medication Detection 
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/cyberwizard1001/cyberwizard1001.github.io/main/screenshots/screenshot.png" alt="demo" width="90%" />
 
 </p>
-Welcome to the template for Practical Hands-on HAI Applications in the CSC8611 course. This HTML application is designed to detect whether a person is wearing a hat. It utilizes input from a camera, applies a machine learning model trained with "Liner," and provides user feedback by changing HTML text and colour.
+
+This application is designed to be implemented in airports as a medicine scanner, to identify and tag medicines in luggage as approved, unapproved or illegal. An image classifier has been built using liner.ai and exported as a tensorflow.js model. 
 
 ### Instructions for Usage
 
-To use this template for your own project in this course, follow these steps:
+Clone the repository. Additionally, modify the model path to use the local model (/model/model) instead of the model pushed to GitHub
 
-- Replace the provided machine learning model with your own model.
-- Customize the user feedback elements according to your project requirements.
+### Contributors
 
-### Need Help?
+Nirmal Karthikeyan
+Tejus R Meda
+Eshaan Abhyankar 
+Swati Nair
 
-If you have any questions or need assistance, feel free to reach out to our group Telegram chat for support.
+
+Designed and developed as part of coursework for the CSC8611 module.

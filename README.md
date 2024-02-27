@@ -1,10 +1,9 @@
 ## Practical Hands-on HAI Applications - Human-Artificial Intelligence (AI) Interaction & Futures - CSC8611
 
 <p align="center">
-<img src="https://github.com/guardeec/haii_practical_template/blob/main/readme/d1.png?raw=true" alt="demo" width="300" />
-<img src="https://github.com/guardeec/haii_practical_template/blob/main/readme/d2.png?raw=true" alt="demo" width="300" />
-</p>
+<img src="https://raw.githubusercontent.com/cyberwizard1001/cyberwizard1001.github.io/main/screenshots/screenshot.png" alt="demo" width="90%" />
 
+</p>
 Welcome to the template for Practical Hands-on HAI Applications in the CSC8611 course. This HTML application is designed to detect whether a person is wearing a hat. It utilizes input from a camera, applies a machine learning model trained with "Liner," and provides user feedback by changing HTML text and colour.
 
 ### Instructions for Usage

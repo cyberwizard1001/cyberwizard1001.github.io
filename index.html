@@ -268,6 +268,39 @@
             width: 20%;
             /* Adjusted width */
         }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .popup-title {
+            margin-top: 0;
+        }
+
+        .popup-message {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -334,7 +367,14 @@
                 </button>
             </div>
             <div id="medicine-label">
-                Medicine Label
+                
+            </div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="popup-close" onclick="closePopup()">&times;</span>
+                    <h3 class="popup-title">Medicine added!</h3>
+                    <p class="popup-message" id="popup-message"></p>
+                </div>
             </div>
         </div>
 
@@ -464,10 +504,10 @@
         }
 
         function updateMedicineList(predictedClass) {
-            // if (predictedClass === undefined || predictedClass === 'human') {
-            //     // Skip adding undefined or human classes to the list
-            //     return;
-            // }
+            if (predictedClass === undefined || predictedClass === 'human') {
+                // Skip adding undefined or human classes to the list
+                return;
+            }
 
             const medicineList = document.getElementById("approved-list");
             const illegalList = document.getElementById("illegal-list");
@@ -499,6 +539,18 @@
                 listItem.style.backgroundColor = '#ffd699'; // Orange color
                 medicineList.appendChild(listItem);
             }
+        }
+
+        function displayPopup(medicineName) {
+            var popup = document.getElementById('popup');
+            var popupMessage = document.getElementById('popup-message');
+            popupMessage.textContent = medicineName + " has been added to the list of accepted medicines";
+            popup.style.display = 'block';
+        }
+
+        function closePopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
         }
 
 

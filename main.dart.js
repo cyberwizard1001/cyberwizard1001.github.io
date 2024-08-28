@@ -93109,7 +93109,7 @@ r=3*$.cU.a7()/100
 q=2*$.c2.a7()/100
 return A.bK(p,A.cu(A.b([o,s,new A.eX(B.ds,p,p,A.aW9(A.aW("View CV",p,p,p,A.cp().$2$color$fontWeight(B.n,B.eL),p,p),B.i,new A.akL(),new A.au(r,q,r,q),B.VH),p),A.b6(p,10*$.c2.a7()/100,p),A.de(A.b([A.lo(A.cu(A.b([A.aW("Let's talk",p,p,p,A.cp().$3$color$fontSize$fontWeight(B.i,A.d_(14),B.b4),p,p),A.aW("nirmalkarthikeyan1@gmail.com",p,p,p,A.cp().$2$color$fontSize(B.ex,A.d_(12)),p,p)],n),B.ap,p,B.C,B.p),1),B.Lw,A.lo(A.aW("Hello! I\u2019m Nirmal. I\u2019m a developer turned designer with an eye for detail and a very varied list of interests.",p,p,p,A.cp().$3$color$fontSize$fontWeight(B.i,A.d_(12),B.I),B.hK,p),1)],n),B.ap,p,B.aR,B.p)],n),B.u,p,B.C,B.p),B.k,p,p,B.kV,p,p,p,p,p,p,p)}}
 A.akL.prototype={
-$0(){var s=window.open("assets/pdfs/Nirmal_Karthikeyan.pdf","new tab")
+$0(){var s=window.open("https://github.com/cyberwizard1001/flutter_portfolio/blob/dadd504b8353b29bf4343092ae3569f46c7ba0eb/assets/pdfs/Nirmal_Karthikeyan.pdf","new tab")
 A.bcu(s)},
 $S:0}
 A.WJ.prototype={

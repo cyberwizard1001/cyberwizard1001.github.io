@@ -93127,7 +93127,7 @@ $0(){A.w8(this.a).T1()},
 $S:0}
 A.aFQ.prototype={
 $2(a,b){var s=null,r=A.bj(a,s,t.w).w.a.a>=1024?B.a1q:s,q=t.p
-return A.aP5(this.a.d,A.b([A.aQJ(r,A.ayB(A.ayw(A.b([A.b3(s,6*$.bD.a4()/100,s),B.N5,A.b3(s,25*$.bD.a4()/100,s),new A.WQ(A.b([B.Cw,B.e6,B.e7],t.Ud),s),A.b3(s,25*$.bD.a4()/100,s),B.Fk,A.b3(s,25*$.bD.a4()/100,s),new A.YE(A.b([B.XO,B.XN,B.XQ,B.XJ,B.XK,B.XI,B.XP,B.XM,B.XR,B.XL],t.RK),s),A.b3(s,25*$.bD.a4()/100,s),B.JJ],q),!0,!0,!0)))],q))},
+return A.aP5(this.a.d,A.b([A.aQJ(r,A.ayB(A.ayw(A.b([A.b3(s,6*$.bD.a4()/100,s),B.N5,A.b3(s,25*$.bD.a4()/100,s),new A.WQ(A.b([B.Cw,B.e6,B.e7],t.Ud),s),A.b3(s,25*$.bD.a4()/100,s),B.Fk,A.b3(s,25*$.bD.a4()/100,s),new A.YE(A.b([B.XP,B.XO,B.XI,B.XQ,B.XM,B.XK,B.XJ,B.XN,B.XR,B.XL],t.RK),s),A.b3(s,25*$.bD.a4()/100,s),B.JJ],q),!0,!0,!0)))],q))},
 $S:145}
 A.U7.prototype={
 S(a){var s,r,q,p=null,o=A.cq().$4$color$fontSize$fontWeight$letterSpacing(B.h,A.c7(32),B.fV,-1),n=t.p
@@ -150657,15 +150657,15 @@ B.XG=new A.je(40,40,B.Mg,null)
 B.DF=new A.je(null,10,null,null)
 B.DG=new A.je(null,16,null,null)
 B.XH=new A.je(null,24,null,null)
-B.XI=new A.hA(B.U,"assets/images/Flutter.png","Flutter",null)
-B.XJ=new A.hA(B.U,"assets/images/Analytics.png","Analytics",null)
-B.XK=new A.hA(B.U,"assets/images/Website_builders.png","Website builders",null)
+B.XI=new A.hA(B.U,"assets/assets/images/Figma.png","Figma",null)
+B.XJ=new A.hA(B.U,"assets/assets/images/AWS.png","AWS",null)
+B.XK=new A.hA(B.U,"assets/assets/images/Flutter.png","Flutter",null)
 B.XL=new A.hA(B.U,"no","Linux",null)
-B.XM=new A.hA(B.U,"no","CRMs",null)
-B.XN=new A.hA(B.i2,"assets/images/User_research.png","User Research",null)
-B.XO=new A.hA(B.i2,"assets/images/UX_design.png","UX Design",null)
-B.XP=new A.hA(B.U,"assets/images/AWS.png","AWS",null)
-B.XQ=new A.hA(B.U,"assets/images/Figma.png","Figma",null)
+B.XM=new A.hA(B.U,"assets/assets/images/Website_builders.png","Website builders",null)
+B.XN=new A.hA(B.U,"no","CRMs",null)
+B.XO=new A.hA(B.i2,"assets/assets/images/User_research.png","User Research",null)
+B.XP=new A.hA(B.i2,"assets/images/UX_design.png","UX Design",null)
+B.XQ=new A.hA(B.U,"assets/assets/images/Analytics.png","Analytics",null)
 B.XR=new A.hA(B.U,"no","CI/CD",null)
 B.XS=new A.Jq(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.o0=new A.YJ(0,0,0,0,0,0,0,!1,!1,null,0)
